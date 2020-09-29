@@ -4,8 +4,8 @@
 
 구현할 내용
 - esc키 입력 시 close [o]
-- children focus
-- 커스텀 백드랍 렌더링
+- children focus [o]
+- 커스텀 백드랍 렌더링 [o]
 
 props
 - BackdropComponent : custom 백드랍 렌더링
@@ -18,3 +18,4 @@ props
 - fromRight
 - fromTop
 - duration={ fade , transform}
+- focusRef : 모달 마운트 후 포커싱할 DOM의 ref

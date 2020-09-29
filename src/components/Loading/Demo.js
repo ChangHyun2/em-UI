@@ -6,7 +6,7 @@ import Container from "../Container/Container";
 const DemoLoading = () => (
   <>
     <Container justify={"center"}>
-      <Loading size={"sm"} />
+      <Loading size={"sm"} color={"red-200"} />
       <Loading size={"md"} />
       <Loading size={"lg"} />
     </Container>

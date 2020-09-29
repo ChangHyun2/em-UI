@@ -5,7 +5,6 @@ import { getColor } from "../../colors/index";
 import Fade from "../Transition/Fade";
 
 // 구현할 내용
-// - esc키 입력 시 close
 // - children focus
 // - 커스텀 백드랍 렌더링
 // -
@@ -42,7 +41,6 @@ const Modal = React.forwardRef(function (props, ref) {
   const Tag = tag;
 
   const closeModalOnEscape = (e) => {
-    console.log(e);
     if (e.keyCode === 27) {
       onClose();
     }
@@ -56,12 +54,9 @@ const Modal = React.forwardRef(function (props, ref) {
     <Backdrop open={open} onClick={onClose} {...BackdropProps} />
   );
 
-  const isValidBackdropComponent =
-    typeof BackdropComponent === "function" &&
-    React.isValidElement(BackdropComponent);
-
   if (BackdropComponent) {
-    if (isValidBackdropComponent) {
+    if (React.isValidElement(<BackdropComponent />)) {
+      console.log(<BackdropComponent />);
       BackdropWithProps = (
         <BackdropComponent open={open} onClick={onClose} {...BackdropProps} />
       );
