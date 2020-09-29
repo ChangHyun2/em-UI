@@ -1,47 +1,42 @@
 import React from "react";
 import { css } from "@emotion/core";
 import { getColor } from "../../colors/index";
-import Grid from "./Grid";
+import BoxGrid from "../BoxGrid/BoxGrid";
+import Grid from "../Grid/Grid";
 
-const boxStyle = css`
-  padding: 0.5em;
-  background-color: ${getColor("grey-50")};
-  border: 1px solid ${getColor("grey-300")};
-`;
-
-const BoxGrid = (props) => (
-  <Grid myStyle={boxStyle} {...props}>
+const DemoBoxGrid = (props) => (
+  <BoxGrid color={{ border: "grey-500" }} {...props}>
     {props.children}
-  </Grid>
+  </BoxGrid>
 );
 
 const Demo = () => (
   <>
-    <BoxGrid>grid</BoxGrid>
-    <BoxGrid row>
-      <BoxGrid>default</BoxGrid>
-      <BoxGrid>default</BoxGrid>
-      <BoxGrid>default</BoxGrid>
-      <BoxGrid>default</BoxGrid>
-    </BoxGrid>
-    <BoxGrid row>
-      <BoxGrid sm={3}>sm=3</BoxGrid>
-      <BoxGrid auto>auto sizing</BoxGrid>
-      <BoxGrid sm={3}>sm=3</BoxGrid>
-    </BoxGrid>
-    <BoxGrid row>
-      <BoxGrid md={6}>md=6</BoxGrid>
-      <BoxGrid md={6}>md=6</BoxGrid>
-    </BoxGrid>
-    <BoxGrid row>
-      <BoxGrid md={4} lg={8}>
+    <DemoBoxGrid>grid</DemoBoxGrid>
+    <Grid row>
+      <DemoBoxGrid>default</DemoBoxGrid>
+      <DemoBoxGrid>default</DemoBoxGrid>
+      <DemoBoxGrid>default</DemoBoxGrid>
+      <DemoBoxGrid>default</DemoBoxGrid>
+    </Grid>
+    <Grid row>
+      <DemoBoxGrid sm={3}>sm=3</DemoBoxGrid>
+      <DemoBoxGrid auto>auto sizing</DemoBoxGrid>
+      <DemoBoxGrid sm={3}>sm=3</DemoBoxGrid>
+    </Grid>
+    <Grid row>
+      <DemoBoxGrid md={6}>md=6</DemoBoxGrid>
+      <DemoBoxGrid md={6}>md=6</DemoBoxGrid>
+    </Grid>
+    <Grid row>
+      <DemoBoxGrid md={4} lg={8}>
         md=4 lg=8
-      </BoxGrid>
-      <BoxGrid md={4} lg={8}>
+      </DemoBoxGrid>
+      <DemoBoxGrid md={4} lg={8}>
         md=4 lg=8
-      </BoxGrid>
-      <BoxGrid sm={4}>BoxGrid</BoxGrid>
-    </BoxGrid>
+      </DemoBoxGrid>
+      <DemoBoxGrid sm={4}>DemoBoxGrid</DemoBoxGrid>
+    </Grid>
   </>
 );
 

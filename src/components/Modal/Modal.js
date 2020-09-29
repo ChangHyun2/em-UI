@@ -56,7 +56,6 @@ const Modal = React.forwardRef(function (props, ref) {
 
   if (BackdropComponent) {
     if (React.isValidElement(<BackdropComponent />)) {
-      console.log(<BackdropComponent />);
       BackdropWithProps = (
         <BackdropComponent open={open} onClick={onClose} {...BackdropProps} />
       );
@@ -69,7 +68,7 @@ const Modal = React.forwardRef(function (props, ref) {
 
   const contentStyles = [
     css`
-      position: absolute;
+      position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
@@ -81,30 +80,20 @@ const Modal = React.forwardRef(function (props, ref) {
   ];
   myStyle && contentStyles.unshift(myStyle);
 
-  const ModalComponent = () => {
-    useEffect(() => {
-      focusRef && focusRef.current.focus();
-      document.addEventListener("keydown", closeModalOnEscape);
-      return () => {
-        document.removeEventListener("keydown", closeModalOnEscape);
-      };
-    }, []);
-
-    return (
-      <Tag ref={ref} {...otherProps} onKeyUp={keyUpHandler}>
-        {hideBackdrop ? null : BackdropWithProps}
-        <div css={contentStyles}>{children}</div>
-      </Tag>
-    );
-  };
+  const modalComponent = open ? (
+    <Tag ref={ref} {...otherProps} onKeyUp={keyUpHandler}>
+      {hideBackdrop ? null : BackdropWithProps}
+      <div css={contentStyles}>{children}</div>
+    </Tag>
+  ) : null;
 
   return duration ? (
     <Fade inProp={open} duration={duration}>
-      <ModalComponent />
+      {modalComponent}
     </Fade>
-  ) : open ? (
-    <ModalComponent />
-  ) : null;
+  ) : (
+    modalComponent
+  );
 });
 
 export default Modal;

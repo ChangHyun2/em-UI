@@ -44,44 +44,121 @@ const colors = {
 };
 export default colors;
 
-export const getColor = (_color) => {
-  if (_color === "white") return "#fff";
-  if (_color === "black") return "#000";
-
-  let [name, contrast] = _color.split("-");
-
-  const color = colors[name][contrast];
-
-  if (!color) {
-    console.error(`${color} is not valid color`);
+const validateColorForm = (color) => {
+  if (!/[a-z]-A?(5|[1-9]0)0$/.test(color)) {
+    throw new Error(
+      `${color} is not valid color form. Use a color formed like "hue-contrast". And check contrast is 50 to 900`
+    );
   }
-
-  return colors[name][contrast];
 };
 
-// export const darken = (color, amount) => {
-//   if (color === "white") return "#fff";
-//   if (color === "black") return "#000";
+export const getColor = (_color) => {
+  if (_color === "white") return colors.white;
+  if (_color === "black") return colors.black;
 
-//   const [name, contrast] = color.split("-");
-//   let darkenContrast = +contrast + amount;
+  validateColorForm(_color);
 
-//   if (darkenContrast > 100) {
-//     console.error(color, amount, "max contrast is 100");
-//     darkenContrast = 100;
-//   }
+  let [hue, contrast] = _color.split("-");
 
-//   return globalColor[name][darkenContrast + ""];
-// };
+  if (!colors[hue]) {
+    console.error(`hue ${hue} is not in your pallete`);
+    return;
+  }
 
-// export const lighten = (color, amount) => {
-//   const [name, contrast] = color.split("-");
-//   let lightenContrast = +contrast - amount;
+  return colors[hue][contrast];
+};
 
-//   if (lightenContrast < 10) {
-//     console.error(color, lightenContrast, "min contrast is 10");
-//     lightenContrast = 10;
-//   }
+const accentAscendOrder = {
+  100: 200,
+  200: 400,
+  400: 700,
+};
 
-//   return globalColor[name][lightenContrast + ""];
-// };
+const accentDescendOrder = {
+  700: 400,
+  400: 200,
+  200: 100,
+};
+
+export const darken = (_color, depth) => {
+  if (_color === "black") return "#000";
+  if (_color === "white") {
+    _color = "grey-50";
+  }
+
+  validateColorForm(_color);
+
+  let [hue, contrast] = color.split("-");
+
+  const huePallete = colors[hue];
+  if (!huePallete) {
+    throw new Error("hue is not defined in your color pallete");
+  }
+
+  if (/^A/.test(contrast)) {
+    // if accent
+    let contrastValue = +contrast.slice(1);
+    while (depth) {
+      contrastValue = accentAscendOrder[contrastValue];
+      if (contrastValue === 700) {
+        `${_color} cannot be darkend more than A700. `;
+        return huePallete["A" + contrastValue];
+      }
+      depth--;
+    }
+    return huePallete["A" + contrastValue];
+  }
+
+  contrast =
+    Number(contrast) + contrast === 50 ? depth * 100 - 50 : depth * 100;
+
+  if (contrast > 900) {
+    console.error(
+      `${_color} cannot be darkend to ${hue}-${contrast}. max contrast is 900`
+    );
+    contrast = 900;
+  }
+
+  return huePallete[contrast];
+};
+
+export const lighten = (_color, depth) => {
+  if (_color === "white") return "#fff";
+  if (_color === "black") {
+    _color = "grey-900";
+  }
+
+  validateColorForm(_color);
+
+  let [hue, contrast] = color.split("-");
+
+  const huePallete = colors[hue];
+  if (!huePallete) {
+    throw new Error("hue is not defined in your color pallete");
+  }
+
+  if (/^A/.test(contrast)) {
+    // if accent
+    let contrastValue = +contrast.slice(1);
+    while (depth) {
+      contrastValue = accentDescendOrder[contrastValue];
+      if (contrastValue === 100) {
+        `${_color} cannot be lightened less than A100. `;
+        return huePallete["A" + contrastValue];
+      }
+      depth--;
+    }
+    return huePallete["A" + contrastValue];
+  }
+
+  contrast = Number(contrast) - depth * 100;
+
+  if (contrast < 50) {
+    console.error(
+      `${_color} cannot be darkend to ${hue}-${contrast}. min contrast is 50`
+    );
+    contrast = 50;
+  }
+
+  return huePallete[contrast];
+};

@@ -1,0 +1,1 @@
+버튼은 font-size inherit이 발생하지 않아 > padding em 적용 시, 자신의 font-size 사용

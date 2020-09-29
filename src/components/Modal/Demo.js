@@ -1,6 +1,7 @@
 import React, { useState, useRef } from "react";
 import { css } from "@emotion/core";
-
+import Button from "../Button/Button";
+import Container from "../Container/Container";
 import Modal from "./Modal";
 
 const Demo = () => {
@@ -80,6 +81,7 @@ const Demo = () => {
     <Modal
       onClose={closeCustom}
       color="grey-100"
+      duration={false}
       open={showCustom}
       focusRef={inputRef}
       BackdropComponent={CustomBackdrop}
@@ -91,8 +93,12 @@ const Demo = () => {
 
   return (
     <>
-      <button onClick={openDefault}>show modal - default backdrop</button>
-      <button onClick={openCustom}>show modal - custom backdrop</button>
+      <Container justify={"center"}>
+        <Button onClick={openDefault}>show modal - default backdrop</Button>
+      </Container>
+      <Container justify={"center"}>
+        <Button onClick={openCustom}>show modal - custom backdrop</Button>
+      </Container>
       {defaultModal}
       {customModal}
     </>

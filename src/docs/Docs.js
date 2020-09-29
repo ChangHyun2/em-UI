@@ -6,6 +6,8 @@ import Loading from "../components/Loading/Demo";
 import Container from "../components/Container/Demo";
 import Grid from "../components/Grid/Demo";
 import Modal from "../components/Modal/Demo";
+import BoxGrid from "../components/BoxGrid/Demo";
+import Button from "../components/Button/Demo";
 
 const docs = () => (
   <>
@@ -23,6 +25,12 @@ const docs = () => (
     </Demo>
     <Demo title={"Modal"}>
       <Modal />
+    </Demo>
+    <Demo title={"BoxGrid"}>
+      <BoxGrid />
+    </Demo>
+    <Demo title={"Button"}>
+      <Button />
     </Demo>
   </>
 );
