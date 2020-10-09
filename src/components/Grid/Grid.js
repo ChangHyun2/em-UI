@@ -33,7 +33,7 @@ const Grid = React.forwardRef(function Grid(props, ref) {
         ${ratio
           .map((ratioCount, i) =>
             ratioCount > 0
-              ? `@media (min-width: ${breakpoint[i]}px){
+              ? `@media only screen and (min-width: ${breakpoint[i]}px){
                     width: ${percent(ratioCount)}%;
                     flex: 0 0 auto;
                 };`

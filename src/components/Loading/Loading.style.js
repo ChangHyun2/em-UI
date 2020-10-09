@@ -13,10 +13,7 @@ const rotate = keyframes`
 
 const _style = {
   wrapper: css`
-    margin: 2rem;
-    width: 100px;
-    height: 100px;
-    display: flex;
+    display: inline-flex;
     justify-content: center;
     align-items: center;
     animation: ${rotate} 1.2s linear infinite;

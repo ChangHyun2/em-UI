@@ -2,6 +2,7 @@
 # v.0
 
 수정할 내용
+- 모바일에 대응할 수 있는 크기 만들기
 - 정적/동적 스타일링 파일 나누기
 - props 정리
 - 컴포넌트에 적용할 color, font-size 정리하기
@@ -62,22 +63,13 @@ props
 - svgIcon 생각해보기
 
 issue
+- svg dangerouslyInner
 - https://stackoverflow.com/questions/17616233/css-hover-sometimes-doesnt-work-on-svg-paths/17616309
 
 
-label hover일 때
-- indicator background 효과
-- indicator insetbox-shadow 효과
-
-label hover , input:checked일 때
-- indicator background white 
-
-input:checked일 때
-- svg transform scale효과
-
 ```js
 
-&:checked:checked:checked+span{
+&:checked:checked:checked+span{ // input Id로 적용해보기
     background-color: #fff;
     & svg{
         transform:scale(1);
@@ -91,6 +83,11 @@ input:checked일 때
 
 ```
 
+### Radio
+
+checkbox 복붙해서 대충 마무리함
+다시 점검해볼 것
+
 ### Container
 
 수정할 내용
@@ -102,7 +99,7 @@ input:checked일 때
 props
 - justify : flex-justify 옵션을 그대로 적용 @string
 - spacing : padding 픽셀 전달 @number
-- alignItems : flex-align-items @string
+- align : flex-align-items @string
 - direction : flex-direction @string
 - wrap : true일 경우 내부 요소가 다음 줄로 넘어가지 않음 @Boolean
 

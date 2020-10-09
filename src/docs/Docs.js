@@ -9,6 +9,8 @@ import Modal from "../components/Modal/Demo";
 import BoxGrid from "../components/BoxGrid/Demo";
 import Button from "../components/Button/Demo";
 import Checkbox from '../components/Checkbox/Demo'
+import Radio from '../components/Radio/Demo'
+import Card from '../components/Card/Demo'
 
 const docs = () => (
   <>
@@ -36,6 +38,13 @@ const docs = () => (
     <Demo title={"Checkbox"}>
       <Checkbox />
     </Demo>
+    <Demo title={"Radio"}>
+      <Radio />
+    </Demo>
+    <Demo title={"Card"}>
+      <Card />
+    </Demo>
+
   </>
 );
 

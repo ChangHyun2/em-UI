@@ -4,14 +4,16 @@ import BoxGrid from "./BoxGrid";
 import Button from "../Button/Button";
 import Container from "../Container/Container";
 
+const myStyle = css`
+color: #333;
+  border: 1px solid #ddd;
+`
 const Demo = () => (
   <>
     <Container>
       <BoxGrid
         color={"blue-600"}
-        myStyle={css`
-          color: white;
-        `}
+        myStyle={myStyle}
         round={1}
         pad={1}
       >
@@ -19,19 +21,17 @@ const Demo = () => (
       </BoxGrid>
       <BoxGrid
         color={"blue-600"}
-        myStyle={css`
-          color: white;
-        `}
+        myStyle={myStyle}
         pad={1}
       >
         renctangle BoxGrid
       </BoxGrid>
     </Container>
     <Container>
-      <BoxGrid color={"grey-100"} round={2}>
+      <BoxGrid color={"grey-100"} round={2} myStyle={myStyle}>
         this is BoxGrid
       </BoxGrid>
-      <BoxGrid color={"grey-100"}>
+      <BoxGrid color={"grey-100"} myStyle={myStyle}>
         <h1>this is BoxGrid</h1>
         <p>
           this is BoxGrid this is BoxGrid this is BoxGrid this is BoxGrid this

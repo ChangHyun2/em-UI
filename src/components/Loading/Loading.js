@@ -32,20 +32,25 @@ const Loading = React.forwardRef(function (props, ref) {
     styles.circle.push(myStyle.circle);
     styles.wrapper.push(myStyle.wrapper);
   }
-  console.log(styles.wrapper);
 
   return (
-    <Tag css={styles.wrapper} ref={ref} {...otherProps}>
-      <svg>
-        <circle
-          css={styles.circle}
-          cx={cx}
-          cy={cy}
-          r={config.radius[size]}
-          fill={"none"}
-        />
-      </svg>
-    </Tag>
+    <div css={css`
+      display:flex;
+      justify-content:center;
+      align-items:center;
+    `}>
+      <Tag css={styles.wrapper} ref={ref} {...otherProps} >
+        <svg width={config.radius[size] * 2 + +config.strokeWidth[size]} height={config.radius[size] * 2 + +config.strokeWidth[size]}>
+          <circle
+            css={styles.circle}
+            cx={cx}
+            cy={cy}
+            r={config.radius[size]}
+            fill={"none"}
+          />
+        </svg>
+      </Tag>
+    </div >
   );
 });
 

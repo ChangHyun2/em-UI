@@ -78,14 +78,6 @@ const Test = () => {
   console.log(color);
   return (
     <>
-      <Sizer size={20}>
-        <CheckBox size={3} color="red-600" />
-        <CheckBox color="orange-600" />
-        <CheckBox color="yellow-600" />
-        <CheckBox color="green-600" />
-        <CheckBox />
-        <CheckBox color="purple-600" />
-      </Sizer>
       <div>
         <p>test button font-size inherit</p>
         <div

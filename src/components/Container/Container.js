@@ -7,7 +7,7 @@ const Container = React.forwardRef(function Container(props, ref) {
     tag = "div",
     justify,
     spacing,
-    alignItems,
+    align,
     direction,
     wrap,
     myStyle,
@@ -18,7 +18,7 @@ const Container = React.forwardRef(function Container(props, ref) {
 
   const style = css`
     justify-content: ${justify};
-    align-items: ${alignItems};
+    align-items: ${align};
     flex-direction: ${direction};
     ${wrap && `flex-wrap: "wrap"`};
 

@@ -1,5 +1,4 @@
 import React from "react";
-
 const Demo = ({ title, children }) => (
   <>
     <h2>{title}</h2>
