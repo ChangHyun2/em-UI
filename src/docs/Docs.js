@@ -8,6 +8,7 @@ import Grid from "../components/Grid/Demo";
 import Modal from "../components/Modal/Demo";
 import BoxGrid from "../components/BoxGrid/Demo";
 import Button from "../components/Button/Demo";
+import Checkbox from '../components/Checkbox/Demo'
 
 const docs = () => (
   <>
@@ -31,6 +32,9 @@ const docs = () => (
     </Demo>
     <Demo title={"Button"}>
       <Button />
+    </Demo>
+    <Demo title={"Checkbox"}>
+      <Checkbox />
     </Demo>
   </>
 );

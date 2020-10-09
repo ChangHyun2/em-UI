@@ -1,4 +1,4 @@
-const {merge} = require("webpack-merge");
+const { merge } = require("webpack-merge");
 const commonConfig = require("./webpack.config.common");
 
 const TerserPlugin = require("terser-webpack-plugin");
@@ -7,20 +7,6 @@ const prodConfig = {
   output: { filename: "./js/[name].bundle.js" },
   mode: "production",
   devtool: "source-map",
-  module: {
-    rules: [
-      {
-        test: /\.(jpe?g|gif|png|svg)$/,
-        use: {
-          loader: "url-loader",
-          options: {
-            name: "./images/[name].[ext]?[hash]",
-            limit: 8192, // in bytes
-          },
-        },
-      },
-    ],
-  },
   optimization: {
     splitChunks: {
       cacheGroups: {

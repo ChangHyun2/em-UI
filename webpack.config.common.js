@@ -24,6 +24,16 @@ const commonConfig = {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.(jpe?g|gif|png|svg)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            name: "./images/[name].[ext]?[hash]",
+            limit: 8192, // in bytes
+          },
+        },
+      },
     ],
   },
 };
@@ -32,7 +42,7 @@ module.exports = commonConfig;
 /*
 loader
 
-url-loader vs file-loader : 
+url-loader vs file-loader :
 url-loader : base64 인코딩 형태의 bytes 파일로 변환 > http request 최소화
 It will automatically fall back to file-loader for all files beyond this size:
 docs : url-loader works like file-loader, but can return a DataURL if the file is smaller than a byte limit.
@@ -68,7 +78,7 @@ code splitting
 
 entry : {
   index: './src/index.js',
-  another: './src/another-module.js', 
+  another: './src/another-module.js',
 }
 
 1) dependOn option

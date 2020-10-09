@@ -37,7 +37,7 @@ const BoxGrid = ({
   ...otherProps
 }) => {
   const styles = [boxStyle({ color, round, pad })];
-  myStyle && styles.unshift(myStyle);
+  myStyle && styles.push(myStyle);
   return (
     <Grid css={styles} {...otherProps}>
       {children}

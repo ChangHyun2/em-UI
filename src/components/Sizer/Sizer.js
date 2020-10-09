@@ -1,14 +1,14 @@
 import React from "react";
 import { css } from "@emotion/core";
 
-const Sizer = ({ size, children }) => {
+const Sizer = ({ size, children, ...others }) =>
   <div
-    style={css`
-      font-size: ${size}px;
-    `}
+    css={css`
+  font-size: ${size}px;
+  `}
+    {...others}
   >
     {children}
   </div>;
-};
 
 export default Sizer;

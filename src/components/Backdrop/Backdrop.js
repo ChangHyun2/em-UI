@@ -11,7 +11,7 @@ const Backdrop = React.forwardRef(function Backdrop(props, ref) {
     background-color: ${color ? getColor(color) : "rgba(0,0,0,0.5)"};
   `;
   const styles = [_style, style];
-  myStyle && styles.unshift(myStyle);
+  myStyle && styles.push(myStyle);
 
   const body = (
     <div css={styles} ref={ref} {...otherProps}>
@@ -26,8 +26,8 @@ const Backdrop = React.forwardRef(function Backdrop(props, ref) {
       {backdrop}
     </Fade>
   ) : (
-    backdrop
-  );
+      backdrop
+    );
 });
 
 export default Backdrop;

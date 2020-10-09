@@ -28,7 +28,7 @@ const Container = React.forwardRef(function Container(props, ref) {
   `;
 
   const styles = [_style, style];
-  myStyle && styles.unshift(myStyle);
+  myStyle && styles.push(myStyle);
 
   return <Tag css={styles} ref={ref} {...otherProps}></Tag>;
 });

@@ -1,22 +1,24 @@
 import React from "react";
-import { getColor } from "../../colors/index";
+import { getColor, darken, lighten } from "../../colors/index";
 import { css } from "@emotion/core";
 
 const Button = React.forwardRef(function Button(props, ref) {
   const {
-    tag = "button",
+    tag = 'button',
     size = 2,
     round = 0.3,
     children,
     color,
     disabled,
-    startIcon,
-    endIcon,
     stretch,
-    href,
+    inverted,
     myStyle,
+    onClick,
+    fontSize,
     ...others
   } = props;
+
+  console.log(color)
 
   const {
     bg: bgColor = "blue-600",
@@ -30,32 +32,92 @@ const Button = React.forwardRef(function Button(props, ref) {
   // grey-50~900
   // A100-200-400-700
 
-  const Tag = tag;
+  let Tag = others.href ? 'a' : tag;
 
   const padding = [size * 0.3, size * 0.5].map((p) => p + "em").join(" ");
   const borderRadius = round + "em";
+  const colors = {
+    base: getColor(bgColor),
+    dark: darken(bgColor, 2),
+    light: lighten(bgColor, 2),
+    superLight: lighten(bgColor, 4),
+    font: getColor(fontColor)
+  }
 
-  const style = css`
+  const _style = css`
+    font-size: ${fontSize}px;
     display: inline-block;
     vertical-align: top;
     padding: ${padding};
     border-radius: ${borderRadius};
-    border: 2px solid transparent;
-    background-color: ${getColor(bgColor)};
-    color: ${getColor(fontColor)};
     text-decoration: none;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     outline: none;
-    cursor: pointer;
     margin-bottom: 1rem;
     transition: background-color 0.15s ease-in-out, box-shadow 0.25s ease-in-out;
+    
   `;
 
+  let style;
+
+  if (disabled) {
+    console.log('disabled')
+    style = css`
+      background-color: #eee;
+      cursor: not-allowed;
+      color: #999;
+      border: 2px solid transparent;
+    `
+  } else if (inverted) {
+    style = css`
+      color:${colors.base};
+      background-color: #fff;
+      border: 1px solid ${colors.base};
+      &:hover{
+        color:#fff;
+        background-color: ${colors.base};
+        box-shadow:none;
+      }
+      transition: background-color 0.6s;
+      &:active, &:focus{
+        color: #fff;
+        background-color: ${colors.light};
+        box-shadow:none;
+      }
+      cursor: pointer;
+    `
+  } else {
+    style = css`
+      color: ${colors.font};
+      background-color: ${colors.base};
+      border: 2px solid transparent;
+      &:hover{
+        background-color:${colors.dark};
+      }
+      &:active{
+        box-shadow: 0 0 0 3px ${colors.light};
+      }
+      &:focus{
+        box-shadow: 0 0 0 3px ${colors.superLight};
+      }
+      cursor: pointer;
+    `
+  }
+
+  let stretchStyle;
+  if (stretch) {
+    stretchStyle = css`
+      width:100%;
+    `
+  }
+
+  const styles = [_style, style, stretchStyle, myStyle]
+
   return (
-    <Tag css={style} ref={ref} {...others}>
+    <Tag css={styles} ref={ref} onClick={onClick} disabled={disabled} {...others}>
       {children}
     </Tag>
   );

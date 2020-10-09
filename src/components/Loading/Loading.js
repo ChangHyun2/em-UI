@@ -29,8 +29,8 @@ const Loading = React.forwardRef(function (props, ref) {
   };
 
   if (myStyle) {
-    styles.circle.unshift(myStyle.circle);
-    styles.wrapper.unshift(myStyle.wrapper);
+    styles.circle.push(myStyle.circle);
+    styles.wrapper.push(myStyle.wrapper);
   }
   console.log(styles.wrapper);
 

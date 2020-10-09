@@ -88,7 +88,7 @@ export const darken = (_color, depth) => {
 
   validateColorForm(_color);
 
-  let [hue, contrast] = color.split("-");
+  let [hue, contrast] = _color.split("-");
 
   const huePallete = colors[hue];
   if (!huePallete) {
@@ -99,7 +99,7 @@ export const darken = (_color, depth) => {
     // if accent
     let contrastValue = +contrast.slice(1);
     while (depth) {
-      contrastValue = accentAscendOrder[contrastValue];
+      contrastValue = accentDescendOrder[contrastValue];
       if (contrastValue === 700) {
         `${_color} cannot be darkend more than A700. `;
         return huePallete["A" + contrastValue];
@@ -109,8 +109,9 @@ export const darken = (_color, depth) => {
     return huePallete["A" + contrastValue];
   }
 
-  contrast =
-    Number(contrast) + contrast === 50 ? depth * 100 - 50 : depth * 100;
+
+  contrast = Number(contrast)
+  contrast += (contrast === "50") ? depth * 100 - 50 : depth * 100;
 
   if (contrast > 900) {
     console.error(
@@ -130,7 +131,7 @@ export const lighten = (_color, depth) => {
 
   validateColorForm(_color);
 
-  let [hue, contrast] = color.split("-");
+  let [hue, contrast] = _color.split("-");
 
   const huePallete = colors[hue];
   if (!huePallete) {
@@ -141,7 +142,7 @@ export const lighten = (_color, depth) => {
     // if accent
     let contrastValue = +contrast.slice(1);
     while (depth) {
-      contrastValue = accentDescendOrder[contrastValue];
+      contrastValue = accentAscendOrder[contrastValue];
       if (contrastValue === 100) {
         `${_color} cannot be lightened less than A100. `;
         return huePallete["A" + contrastValue];
