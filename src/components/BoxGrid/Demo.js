@@ -32,7 +32,7 @@ const Demo = () => (
         this is BoxGrid
       </BoxGrid>
       <BoxGrid color={"grey-100"} myStyle={myStyle}>
-        <h1>this is BoxGrid</h1>
+        <h3>this is BoxGrid</h3>
         <p>
           this is BoxGrid this is BoxGrid this is BoxGrid this is BoxGrid this
           is BoxGrid this is BoxGrid this is BoxGrid

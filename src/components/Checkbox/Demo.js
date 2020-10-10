@@ -33,7 +33,7 @@ const ColorChangeCheckbox = ({ onClick, start = 0, children, ...otherProps }) =>
 
 const Demo = () => <>
     <p>you can check other colors </p>
-    <Sizer size={20} css={css`
+    <Sizer size={16} css={css`
         & label{
             margin-right: 0.5em;
         }
@@ -45,6 +45,13 @@ const Demo = () => <>
         <ColorChangeCheckbox start={4} />
         <ColorChangeCheckbox start={5} />
         <ColorChangeCheckbox />
+        <ColorChangeCheckbox size={3} >Checkbox</ColorChangeCheckbox>
+        <ColorChangeCheckbox size={2} start={1} >Checkbox</ColorChangeCheckbox>
+        <ColorChangeCheckbox start={2} >Checkbox</ColorChangeCheckbox>
+        <ColorChangeCheckbox start={3} >Checkbox</ColorChangeCheckbox>
+        <ColorChangeCheckbox start={4} >Checkbox</ColorChangeCheckbox>
+        <ColorChangeCheckbox start={5} >Checkbox</ColorChangeCheckbox>
+        <ColorChangeCheckbox >Checkbox</ColorChangeCheckbox>
     </Sizer>
 </>
     ;

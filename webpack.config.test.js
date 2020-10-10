@@ -23,6 +23,16 @@ const testConfig = {
           loader: "babel-loader",
         },
       },
+      {
+        test: /\.(jpe?g|gif|png|svg)$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            name: "./images/[name].[ext]?[hash]",
+            limit: 8192, // in bytes
+          },
+        },
+      },
     ],
   },
   output: {

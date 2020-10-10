@@ -12,7 +12,7 @@
 - 리팩토링하기
 - 타 브라우저 테스트하기
 - docs, md파일 정리
-
+- fontSize 속성 지우기
 ## Component
 
 ### Backdrop
@@ -87,6 +87,9 @@ issue
 
 checkbox 복붙해서 대충 마무리함
 다시 점검해볼 것
+
+issue
+- Radio svg 크기가 작을 때 중앙 정렬 안 됨
 
 ### Container
 

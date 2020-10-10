@@ -11,7 +11,7 @@ import Button from "../components/Button/Demo";
 import Checkbox from '../components/Checkbox/Demo'
 import Radio from '../components/Radio/Demo'
 import Card from '../components/Card/Demo'
-
+import Avatar from '../components/Avatar/Demo'
 const docs = () => (
   <>
     <Demo title={"Loading"}>
@@ -43,6 +43,9 @@ const docs = () => (
     </Demo>
     <Demo title={"Card"}>
       <Card />
+    </Demo>
+    <Demo title={"Avatar"}>
+      <Avatar />
     </Demo>
 
   </>

@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import styled from "@emotion/styled";
 import Docs from "./docs/Docs";
+import Sizer from './components/Sizer/Sizer'
 
 const GlobalStyles = styled.div`
   * {
@@ -14,7 +15,9 @@ const GlobalStyles = styled.div`
 
 ReactDOM.render(
   <GlobalStyles>
-    <Docs />
+    <Sizer size={14}>
+      <Docs />
+    </Sizer>
   </GlobalStyles>,
   document.getElementById("root")
 );

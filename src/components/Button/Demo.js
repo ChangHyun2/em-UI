@@ -22,7 +22,7 @@ const ColorChangeBtn = ({ onClick, children, ...otherProps }) => {
     }
   }
 
-  return <Button fontSize={15} onClick={onClickHandler} color={{ bg: colors[color] }} {...otherProps}>{children}</Button>
+  return <Button onClick={onClickHandler} color={{ bg: colors[color] }} {...otherProps}>{children}</Button>
 }
 
 const Demo = () => <>

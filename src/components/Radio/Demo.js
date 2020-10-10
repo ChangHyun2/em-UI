@@ -32,7 +32,7 @@ const Demo = () => {
             setChecked(e.target.value)
         }
 
-        return <Sizer size={18} css={css`
+        return <Sizer size={16} css={css`
             & label{
                 margin-right: 0.5em;
             }
@@ -43,6 +43,12 @@ const Demo = () => {
             <ColorChangeRadio start={3} value="d" checked={checked === 'd'} onChange={handleChange} />
             <ColorChangeRadio start={4} value="e" checked={checked === 'e'} onChange={handleChange} />
             <ColorChangeRadio start={5} value="f" checked={checked === 'f'} onChange={handleChange} />
+            <ColorChangeRadio size={3} value="a" checked={checked === 'a'} onChange={handleChange} >Radio</ColorChangeRadio>
+            <ColorChangeRadio size={2} start={1} value="b" checked={checked === 'b'} onChange={handleChange} >Radio</ColorChangeRadio>
+            <ColorChangeRadio start={2} value="c" checked={checked === 'c'} onChange={handleChange} >Radio</ColorChangeRadio>
+            <ColorChangeRadio start={3} value="d" checked={checked === 'd'} onChange={handleChange} >Radio</ColorChangeRadio>
+            <ColorChangeRadio start={4} value="e" checked={checked === 'e'} onChange={handleChange} >Radio</ColorChangeRadio>
+            <ColorChangeRadio start={5} value="f" checked={checked === 'f'} onChange={handleChange} >Radio</ColorChangeRadio>
         </Sizer>
     }
 

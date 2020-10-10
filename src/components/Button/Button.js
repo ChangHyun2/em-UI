@@ -5,7 +5,7 @@ import { css } from "@emotion/core";
 const Button = React.forwardRef(function Button(props, ref) {
   const {
     tag = 'button',
-    size = 2,
+    size = 1,
     round = 0.3,
     children,
     color,

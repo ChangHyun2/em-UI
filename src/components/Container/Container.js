@@ -11,6 +11,7 @@ const Container = React.forwardRef(function Container(props, ref) {
     direction,
     wrap,
     myStyle,
+    size,
     ...otherProps
   } = props;
 
@@ -20,11 +21,16 @@ const Container = React.forwardRef(function Container(props, ref) {
     justify-content: ${justify};
     align-items: ${align};
     flex-direction: ${direction};
-    ${wrap && `flex-wrap: "wrap"`};
+    ${wrap && `flex-wrap: wrap;`}
+    ${size && `font-size: ${size}px;`}
 
-    & > div {
-      padding: ${spacing}px;
-    }
+    ${spacing && `
+    margin-left:-${spacing}px;
+    margin-right:-${spacing}px;
+    &>div{
+      margin-left: ${spacing}px;
+      margin-right: ${spacing}px;
+    }`}
   `;
 
   const styles = [_style, style];
