@@ -1,0 +1,19 @@
+.slide{
+    position:absolute;
+}
+.slide > img{
+    margin: 0 auto;
+        border-radius: 1em;
+}
+
+.container{
+    position:relative;
+    align-items:center;
+}
+button{
+    display:block;
+}
+.view{
+    border: 2px solid #000;
+    overflow: hidden;
+}

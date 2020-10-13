@@ -1,0 +1,14 @@
+.slide{
+    position:absolute;
+}
+
+.container{
+    position:relative;
+    align-items:center;
+}
+button{
+    display:block;
+}
+.view{
+    overflow: hidden;
+}

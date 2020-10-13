@@ -1,0 +1,13 @@
+.slide{
+    
+}
+
+.container{
+    display:flex;
+    align-items:center;
+}
+
+.view{
+    width:600px;
+    overflow: hidden;
+}
