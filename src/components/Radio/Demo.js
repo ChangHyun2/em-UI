@@ -27,9 +27,13 @@ const Demo = () => {
     const RadioGroup = () => {
 
         const [checked, setChecked] = useState('a');
+        const [placeholderChecked, setPlaceholderChecked] = useState('a');
 
         const handleChange = (e) => {
             setChecked(e.target.value)
+        }
+        const setPlaceholderChange = (e) => {
+            setPlaceholderChecked(e.target.value)
         }
 
         return <Sizer size={16} css={css`
@@ -37,18 +41,22 @@ const Demo = () => {
                 margin-right: 0.5em;
             }
         `}>
-            <ColorChangeRadio size={3} value="a" checked={checked === 'a'} onChange={handleChange} />
-            <ColorChangeRadio size={2} start={1} value="b" checked={checked === 'b'} onChange={handleChange} />
-            <ColorChangeRadio start={2} value="c" checked={checked === 'c'} onChange={handleChange} />
-            <ColorChangeRadio start={3} value="d" checked={checked === 'd'} onChange={handleChange} />
-            <ColorChangeRadio start={4} value="e" checked={checked === 'e'} onChange={handleChange} />
-            <ColorChangeRadio start={5} value="f" checked={checked === 'f'} onChange={handleChange} />
-            <ColorChangeRadio size={3} value="a" checked={checked === 'a'} onChange={handleChange} >Radio</ColorChangeRadio>
-            <ColorChangeRadio size={2} start={1} value="b" checked={checked === 'b'} onChange={handleChange} >Radio</ColorChangeRadio>
-            <ColorChangeRadio start={2} value="c" checked={checked === 'c'} onChange={handleChange} >Radio</ColorChangeRadio>
-            <ColorChangeRadio start={3} value="d" checked={checked === 'd'} onChange={handleChange} >Radio</ColorChangeRadio>
-            <ColorChangeRadio start={4} value="e" checked={checked === 'e'} onChange={handleChange} >Radio</ColorChangeRadio>
-            <ColorChangeRadio start={5} value="f" checked={checked === 'f'} onChange={handleChange} >Radio</ColorChangeRadio>
+            <>
+                <Radio size={3} value="a" checked={checked === 'a'} onChange={handleChange} />
+                <Radio size={2} start={1} value="b" checked={checked === 'b'} onChange={handleChange} />
+                <Radio start={2} value="c" checked={checked === 'c'} onChange={handleChange} />
+                <ColorChangeRadio start={3} value="d" checked={checked === 'd'} onChange={handleChange} />
+                <ColorChangeRadio start={4} value="e" checked={checked === 'e'} onChange={handleChange} />
+                <ColorChangeRadio start={5} value="f" checked={checked === 'f'} onChange={handleChange} />
+            </>
+            <>
+                <Radio size={3} value="a" checked={placeholderChecked === 'a'} onChange={setPlaceholderChange} >Radio</Radio>
+                <Radio size={2} start={1} value="b" checked={placeholderChecked === 'b'} onChange={setPlaceholderChange} >Radio</Radio>
+                <Radio start={2} value="c" checked={placeholderChecked === 'c'} onChange={setPlaceholderChange} >Radio</Radio>
+                <ColorChangeRadio start={3} value="d" checked={placeholderChecked === 'd'} onChange={setPlaceholderChange} >Radio</ColorChangeRadio>
+                <ColorChangeRadio start={4} value="e" checked={placeholderChecked === 'e'} onChange={setPlaceholderChange} >Radio</ColorChangeRadio>
+                <ColorChangeRadio start={5} value="f" checked={placeholderChecked === 'f'} onChange={setPlaceholderChange} >Radio</ColorChangeRadio>
+            </>
         </Sizer>
     }
 

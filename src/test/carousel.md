@@ -15,3 +15,7 @@ https://stackoverflow.com/questions/28167137/whats-the-difference-between-width-
 
 
 https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame
+
+// 터치 이벤트
+e.type에 따라 position을 가져오는 방법이 다름
+https://developer.mozilla.org/en-US/docs/Web/API/Touch/clientX

@@ -3,6 +3,7 @@ import Backdrop from "../Backdrop/Backdrop";
 import { css } from "@emotion/core";
 import { getColor } from "../../colors/index";
 import Fade from "../Transition/Fade";
+import zIndex from '../../variables/zIndex'
 
 // 구현할 내용
 // - children focus
@@ -30,7 +31,7 @@ const Modal = React.forwardRef(function (props, ref) {
     onClose,
     focusRef,
     children,
-    duration = 200,
+    duration = 150,
     open = false,
     color = "grey-50",
     tag = "div",
@@ -76,12 +77,13 @@ const Modal = React.forwardRef(function (props, ref) {
       padding: 1.5rem;
       background-color: ${getColor(color)};
       color: #fff;
+      z-index:${zIndex.modal} 
     `,
   ];
   myStyle && contentStyles.unshift(myStyle);
 
   const modalComponent = open ? (
-    <Tag ref={ref} {...otherProps} onKeyUp={keyUpHandler}>
+    <Tag ref={ref} {...otherProps} onKeyUp={keyUpHandler} >
       {hideBackdrop ? null : BackdropWithProps}
       <div css={contentStyles}>{children}</div>
     </Tag>
@@ -92,8 +94,8 @@ const Modal = React.forwardRef(function (props, ref) {
       {modalComponent}
     </Fade>
   ) : (
-    modalComponent
-  );
+      modalComponent
+    );
 });
 
 export default Modal;

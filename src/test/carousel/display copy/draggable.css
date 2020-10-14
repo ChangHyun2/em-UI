@@ -1,0 +1,56 @@
+body{
+    width: 100%
+}
+
+.slide{
+    position:absolute;
+}
+.slide > img{
+    margin: 0 auto;
+    border-radius: 1em; 
+    pointer-events:none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+            
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag:none;
+
+  transition: all 4s linear;
+}
+    
+.container{
+    position:relative;
+    align-items:center;
+    cursor: grab;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none; 
+            
+   -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag:none;
+}
+
+.container:active{
+    cursor: grabbing;
+}
+
+button{
+    display:block;
+}
+
+.view{
+    width: 100%;
+    border: 2px solid #000;
+    overflow: hidden;
+}

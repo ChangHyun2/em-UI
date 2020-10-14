@@ -3,6 +3,7 @@ import { css } from "@emotion/core";
 import Button from "../Button/Button";
 import Container from "../Container/Container";
 import Modal from "./Modal";
+import zIndex from '../../variables/zIndex'
 
 const Demo = () => {
   // BackdropComponent,
@@ -27,6 +28,7 @@ const Demo = () => {
           justify-content: center;
           align-items: center;
           background-color: #003;
+          z-index:${zIndex.backdrop}
         `}
         onClick={onClose}
         {...otherProps}

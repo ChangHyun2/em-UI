@@ -1,4 +1,6 @@
 import { css } from "@emotion/core";
+import zIndex from '../../variables/zIndex'
+
 
 const _style = css`
   position: fixed;
@@ -10,6 +12,7 @@ const _style = css`
   justify-content: center;
   align-items: center;
   transition: background-color 1s linear;
+  z-index:${zIndex.backdrop}
 `;
 
 export default _style;

@@ -38,20 +38,20 @@ const Demo = () => <>
             margin-right: 0.5em;
         }
         `}>
-        <ColorChangeCheckbox size={3} />
-        <ColorChangeCheckbox size={2} start={1} />
-        <ColorChangeCheckbox start={2} />
+        <Checkbox size={3} />
+        <Checkbox size={2} start={1} />
+        <Checkbox />
         <ColorChangeCheckbox start={3} />
         <ColorChangeCheckbox start={4} />
         <ColorChangeCheckbox start={5} />
-        <ColorChangeCheckbox />
-        <ColorChangeCheckbox size={3} >Checkbox</ColorChangeCheckbox>
-        <ColorChangeCheckbox size={2} start={1} >Checkbox</ColorChangeCheckbox>
-        <ColorChangeCheckbox start={2} >Checkbox</ColorChangeCheckbox>
+        <Checkbox />
+        <Checkbox size={3} >Checkbox</Checkbox>
+        <Checkbox size={2} start={1} >Checkbox</Checkbox>
+        <Checkbox  >Checkbox</Checkbox>
         <ColorChangeCheckbox start={3} >Checkbox</ColorChangeCheckbox>
         <ColorChangeCheckbox start={4} >Checkbox</ColorChangeCheckbox>
         <ColorChangeCheckbox start={5} >Checkbox</ColorChangeCheckbox>
-        <ColorChangeCheckbox >Checkbox</ColorChangeCheckbox>
+        <Checkbox >Checkbox</Checkbox>
     </Sizer>
 </>
     ;

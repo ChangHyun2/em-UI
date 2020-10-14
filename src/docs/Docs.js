@@ -12,6 +12,8 @@ import Checkbox from '../components/Checkbox/Demo'
 import Radio from '../components/Radio/Demo'
 import Card from '../components/Card/Demo'
 import Avatar from '../components/Avatar/Demo'
+import Switch from '../components/Switch/Demo'
+
 const docs = () => (
   <>
     <Demo title={"Loading"}>
@@ -47,7 +49,9 @@ const docs = () => (
     <Demo title={"Avatar"}>
       <Avatar />
     </Demo>
-
+    <Demo title={"Switch"}>
+      <Switch />
+    </Demo>
   </>
 );
 
