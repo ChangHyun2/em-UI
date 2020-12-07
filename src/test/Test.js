@@ -23,36 +23,34 @@ const slideSheet = {
   height: '100%',
 }
 
-const Slide = ({ src }) => <img src={src} style={slideSheet} />
 
-const SliderContainer = ({ children, forwardRef }) => <div ref={forwardRef} style={sliderContainerSheet}>{children}</div>
+// const Tooltip = () => {
 
-const Container = ({ children }) => <div style={containerSheet}>{children}</div>
+// }
 
-const Slider = ({ images }) => {
-  const TOTAL_SLIDES = images.length;
-
-  const [current, setCurrent] = useState(0)
-  const containerRef = useRef(null)
-
-  const toNext = () => setCurrent(current >= TOTAL_SLIDES ? 0 : current + 1)
-  const toPrev = () => setCurrent(current === 0 ? TOTAL_SLIDES : current - 1)
-
-  useEffect(() => {
-    containerRef.current.style.transition = 'all 0.5s ease-in-out'
-    containerRef.current.style.transform = `translateX(-${current}00%)`
-  }, [current])
-
-  return (
-    <Container>
-      {current}
-      <SliderContainer forwardRef={containerRef}>
-        {images.map(src => <Slide key={Math.random()} src={src} />)}
-      </SliderContainer>
-      <Button onClick={toPrev}>Prev</Button>
-      <Button onClick={toNext}>Next</Button>
-    </Container>
-  )
+const Comp = () => {
+  return <div title="my tooltip" css={css`
+    position:relative;
+    border-bottm: 1px dashed #000;
+    
+    &::before{
+      display:block;
+      
+      content: attr(data-title); /* here's the magic */
+      position:absolute;
+      
+      top:0;
+      left:100%;
+      
+      /* basic styles */
+      width:200px;
+      padding:10px;
+      border-radius:10px;
+      background:#000;
+      color: #fff;
+      text-align:center;
+    }
+    `}>add Tooltip</div>
 }
 
 
@@ -60,9 +58,9 @@ const Test = () => {
   ComponentType();
   return (
     <>
-      <Slider css={css`
-        width: 200px;
-      `} images={['https://picsum.photos/200/200', 'https://picsum.photos/200/200', 'https://picsum.photos/200/200']} />
+      <Comp>
+        hello
+      </Comp>
       <PlaceholderTest />
       <div>
         <p>test button font-size inherit</p>
